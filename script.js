@@ -1,6 +1,8 @@
 let humanScore = 0;
 let computerScore = 0;
 
+playGame();
+
 function getComputerChoice() {
     let val = Math.random(); // chooses random value between 0 and 1, choice is = split thirds.
 
@@ -70,5 +72,4 @@ function playGame() {
     }
 }
 
-playGame();
 
