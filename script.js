@@ -88,24 +88,29 @@ function playGame(click) {
 
 //Creating score board
 const choiceContainer = document.querySelector('.choices');
+const pSection = document.createElement('div');
+const cSection = document.createElement('div');
 const playerBoard = document.createElement('p');
 const computerBoard = document.createElement('p');
 
+choiceContainer.appendChild(pSection);
+choiceContainer.appendChild(cSection);
+
 playerBoard.textContent = "Player Score: " + humanScore;
-choiceContainer.appendChild(playerBoard);
+pSection.appendChild(playerBoard);
 
 computerBoard.textContent = "Computer Score: " + computerScore;
-choiceContainer.appendChild(computerBoard);
+cSection.appendChild(computerBoard);
 
 function updateScore(ticker, tocker) {
     if (ticker == 1) {
         playerBoard.textContent = "Player Score: " + humanScore;
-        choiceContainer.appendChild(playerBoard);
+        pSection.appendChild(playerBoard);
     }
 
     if (tocker == 1) {
         computerBoard.textContent = "Computer Score: " + computerScore;
-        choiceContainer.appendChild(computerBoard);
+        cSection.appendChild(computerBoard);
     }
 }
 
@@ -152,10 +157,10 @@ function roundWinner(roundWinner, humanChoice, computerChoice) {
         roundUpdater.textContent = `You win! ${humanChoice} beats ${computerChoice}.`;
         roundDisplay.appendChild(roundUpdater);
     } else if (roundWinner == 'computer') {
-        roundUpdater.textContent = `You lose! ${computerChoice} beats ${humanChoice}`;
+        roundUpdater.textContent = `You lose! ${computerChoice} beats ${humanChoice}.`;
         roundDisplay.appendChild(roundUpdater);
     } else {
-        roundUpdater.textContent = `It's a tie`;
+        roundUpdater.textContent = `It's a tie!`;
         roundDisplay.appendChild(roundUpdater);
     }
 }
@@ -171,7 +176,7 @@ function winner(winner) {
         winnerDisplay.appendChild(actualWinner);
 
     } else if (winner == 'computer') {
-        actualWinner.textContent = "You lose. Maybe try a little harder next time?";
+        actualWinner.textContent = "You lost! Maybe try a little harder next time?";
         winnerDisplay.appendChild(actualWinner);
     }
 }
